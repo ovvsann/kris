@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Кристина, с днем рождения!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #ffb3c6 0%, #120018 55%, #050008 100%);
+      color: #fdfdfd;
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    /* Карусель */
+    .carousel {
+      position: relative;
+      margin: 32px auto;
+      max-width: 420px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+
+    .carousel-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel img {
+      width: 100%;
+      display: none;
+      object-fit: cover;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .carousel-btn.left {
+      left: 10px;
+    }
+
+    .carousel-btn.right {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .carousel-dots span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin: 0 3px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .carousel-dots span.active {
+      background: #ff7aa2;
+    }
+
+    /* Сердечки */
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      pointer-events: none;
+      animation: heart-float 1.2s ease-out forwards;
+      text-shadow: 0 0 8px rgba(255, 65, 130, 0.7);
+    }
+
+    @keyframes heart-float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-80px) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    section {
+      margin: 32px 0;
+      padding: 20px 18px;
+      border-radius: 20px;
+      background: rgba(10, 0, 25, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    section p,
+    section li {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      opacity: 0.92;
+    }
+
+    .poems p {
+      margin-bottom: 10px;
+      white-space: pre-line;
+    }
+
+    .wishes ul,
+    .thanks ul {
+      list-style: disc;
+      padding-left: 18px;
+    }
+
+    .wishes li,
+    .thanks li {
+      margin-bottom: 6px;
+    }
+
+    .manual-steps {
+      list-style: decimal;
+      padding-left: 18px;
+    }
+
+    .manual-steps li {
+      margin-bottom: 8px;
+    }
+
+    .love-languages-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px 16px;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+
+    .love-languages-list div {
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .love-languages-list span.lang {
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    footer .phone {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    footer .hotline {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.1rem;
+      }
+      .wrapper {
+        padding: 20px 12px 36px;
+      }
+      section {
+        padding: 16px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>я тебя люблю, кристина! с днем рождения!</h1>
+      <p>все это место создано исключительно под тебя. заходить другим лицам запрещено.</p>
+    </header>
+
+    <!-- Карусель с фото Кристины -->
+    <!-- просто положи в папку эти файлы с такими именами -->
+    <!-- 1: вы с шахматами -->
+    <!-- 2: офис с ковром -->
+    <!-- 3: кристина с котом -->
+    <!-- 4: джакузи-туса -->
+    <!-- 5: кристина на закате -->
+    <!-- 6: тусовка с пиццей -->
+    <!-- 7: кристина и собака в офисе -->
+    <!-- 8: команда с сертификатами -->
+    <!-- 9: парень в худи GRAFIKA -->
+    <!-- 10: свечи в пицце на др -->
+    <div class="carousel" id="photoCarousel">
+      <div class="carousel-inner">
+        <img src="kristina-chess.jpg" alt="кристина играет в шахматы" class="active">
+        <img src="kristina-office-carpet.jpg" alt="кристина в офисе с ковром">
+        <img src="kristina-cat.jpg" alt="кристина с котом">
+        <img src="kristina-jacuzzi.jpg" alt="кристина с друзьями в джакузи">
+        <img src="kristina-sunset.jpg" alt="кристина на закате">
+        <img src="kristina-pizza-party.jpg" alt="тусовка с пиццей">
+        <img src="kristina-dog-office.jpg" alt="кристина и пес в офисе">
+        <img src="kristina-team-certificates.jpg" alt="команда с сертификатами">
+        <img src="grafika-nikita.jpg" alt="никита в худи grafika">
+        <img src="kristina-birthday-pizza.jpg" alt="день рождения с пиццей и свечами">
+      </div>
+      <button class="carousel-btn left" type="button" id="prevBtn">⟨</button>
+      <button class="carousel-btn right" type="button" id="nextBtn">⟩</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+    <!-- Стишки -->
+    <section class="poems" id="poems">
+      <h2>стишки с днем рождения</h2>
+      <p>
+ты смеешься - и воздух светлеет,
+ты молчишь - и становится тихо в голове.
+хочу, чтобы каждый твой год наглеет
+и забирает все лучшее себе.
+      </p>
+      <p>
+пусть будет жизнь без лишней ерунды,
+чтоб планы сбывались быстрее, чем сторис,
+чтоб рядом всегда были те самые "мы",
+и чтобы ты никогда в себе не сомневалась.
+      </p>
+      <!-- можешь добавить свои стихи ниже -->
+    </section>
+
+    <!-- Пожелания -->
+    <section class="wishes" id="wishes">
+      <h2>пожелания</h2>
+      <ul>
+        <li>чтобы у тебя всегда были и ресурсы, и дерзость брать от жизни максимум.</li>
+        <li>чтобы то, что ты считаешь "слишком смелой мечтой", стало твоей рутиной.</li>
+        <li>чтобы вокруг тебя были люди, которые не тормозят, а разгоняют.</li>
+        <li>чтобы твоя нежность и твоя сила никогда не конфликтовали, а работали в паре.</li>
+        <li>чтобы ты чувствовала себя защищенной даже в те дни, когда мир тупит.</li>
+      </ul>
+    </section>
+
+    <!-- Инструкция к применению Кристины -->
+    <section class="manual" id="manual">
+      <h2>инструкция к применению кристины</h2>
+      <ul class="manual-steps">
+        <li><strong>не трогать усталость.</strong> если кристина замолчала - это не игнор, а режим перезагрузки. тут лучше чай, плед и обнимание.</li>
+        <li><strong>поддерживать амбиции.</strong> если кристина сказала "а давай попробуем", нормальный ответ не "это сложно", а "ок, как делим задачи".</li>
+        <li><strong>хвалить по делу.</strong> за результат, за смелость, за честность с собой. она это слышит и запоминает.</li>
+        <li><strong>не обесценивать.</strong> ни чувства, ни мысли, ни идеи. даже если звучит как "я все брошу и уеду", сначала слушаем, потом паникуем.</li>
+        <li><strong>прижимать к себе.</strong> обнимать по собственной инициативе, а не только "когда попросили". телу тоже нужна уверенность, что ее любят.</li>
+        <li><strong>к критике подходить аккуратно.</strong> формат "давай подумаем, как сделать удобнее" вместо "ты опять".</li>
+        <li><strong>режим "бережно".</strong> включать в дни, когда она выглядит сильной, но в глазах чуть грустно. как раз тогда поддержка нужна сильнее всего.</li>
+      </ul>
+    </section>
+
+    <!-- Благодарности -->
+    <section class="thanks" id="thanks">
+      <h2>благодарности</h2>
+      <ul>
+        <li>за то, как ты умеешь оставаться собой при любом раскладе.</li>
+        <li>за то, что рядом с тобой хочется быть честнее, взрослее и добрее.</li>
+        <li>за твой юмор, который спасает ситуации, которые вообще не обязан спасать.</li>
+        <li>за твой мозг, который замечает детали, которые другие даже не видят.</li>
+        <li>за то, что ты не сдаешься там, где большинство уже машет рукой.</li>
+        <li>за всю заботу, которую ты раздаешь людям и даже не считаешь это чем-то особенным.</li>
+      </ul>
+    </section>
+
+    <!-- "Я тебя люблю" на 50 языках -->
+    <section class="love-languages" id="love-languages">
+      <h2>я тебя люблю на 50 языках</h2>
+      <p>если вдруг твой мозг скажет, что тебя мало любят - можешь открыть этот блок и просто спорить с ним на 50 языках.</p>
+
+      <div class="love-languages-list">
+        <div><span class="lang">Русский</span>: Я тебя люблю</div>
+        <div><span class="lang">Английский</span>: I love you</div>
+        <div><span class="lang">Испанский</span>: Te quiero</div>
+        <div><span class="lang">Французский</span>: Je t’aime</div>
+        <div><span class="lang">Немецкий</span>: Ich liebe dich</div>
+        <div><span class="lang">Итальянский</span>: Ti amo</div>
+        <div><span class="lang">Португальский</span>: Eu te amo</div>
+        <div><span class="lang">Китайский (мандарин)</span>: Wǒ ài nǐ</div>
+        <div><span class="lang">Японский</span>: Aishiteru</div>
+        <div><span class="lang">Корейский</span>: Saranghae</div>
+        <div><span class="lang">Арабский</span>: Ana uhibbuka</div>
+        <div><span class="lang">Хинди</span>: Main tumse pyaar karta hoon</div>
+        <div><span class="lang">Турецкий</span>: Seni seviyorum</div>
+        <div><span class="lang">Украинский</span>: Я тебе кохаю</div>
+        <div><span class="lang">Белорусский</span>: Я цябе кахаю</div>
+        <div><span class="lang">Казахский</span>: Мен сені жақсы көремін</div>
+        <div><span class="lang">Узбекский</span>: Men seni sevaman</div>
+        <div><span class="lang">Таджикский</span>: Ман туро дӯст медорам</div>
+        <div><span class="lang">Азербайджанский</span>: Mən səni sevirəm</div>
+        <div><span class="lang">Армянский</span>: Yes sirum em kez</div>
+        <div><span class="lang">Грузинский</span>: Miqvarxar</div>
+        <div><span class="lang">Чеченский</span>: Со хьо ду</div>
+        <div><span class="lang">Польский</span>: Kocham cię</div>
+        <div><span class="lang">Чешский</span>: Miluji tě</div>
+        <div><span class="lang">Словацкий</span>: Ľúbim ťa</div>
+        <div><span class="lang">Сербский</span>: Volim te</div>
+        <div><span class="lang">Хорватский</span>: Volim te</div>
+        <div><span class="lang">Болгарский</span>: Обичам те</div>
+        <div><span class="lang">Румынский</span>: Te iubesc</div>
+        <div><span class="lang">Греческий</span>: S’agapó</div>
+        <div><span class="lang">Вьетнамский</span>: Anh yêu em</div>
+        <div><span class="lang">Индонезийский</span>: Aku cinta kamu</div>
+        <div><span class="lang">Тайский</span>: Chan rak khun</div>
+        <div><span class="lang">Финский</span>: Rakastan sinua</div>
+        <div><span class="lang">Шведский</span>: Jag älskar dig</div>
+        <div><span class="lang">Норвежский</span>: Jeg elsker deg</div>
+        <div><span class="lang">Датский</span>: Jeg elsker dig</div>
+        <div><span class="lang">Нидерландский</span>: Ik hou van jou</div>
+        <div><span class="lang">Иврит</span>: Ani ohev otach</div>
+        <div><span class="lang">Персидский (фарси)</span>: Dooset daram</div>
+        <div><span class="lang">Урду</span>: Main tum se muhabbat karta hoon</div>
+        <div><span class="lang">Бенгальский</span>: Ami tomake bhalobashi</div>
+        <div><span class="lang">Малайский</span>: Saya cinta kamu</div>
+        <div><span class="lang">Филиппинский (тагальский)</span>: Mahal kita</div>
+        <div><span class="lang">Суахили</span>: Nakupenda</div>
+        <div><span class="lang">Исландский</span>: Ég elska þig</div>
+        <div><span class="lang">Латышский</span>: Es tevi mīlu</div>
+        <div><span class="lang">Литовский</span>: Aš tave myliu</div>
+        <div><span class="lang">Эстонский</span>: Ma armastan sind</div>
+        <div><span class="lang">Каталанский</span>: T’estimo</div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="phone">+7 902 289 75 28</div>
+      <div class="hotline">если вдруг тебе захочется опустить руки - это горячая линия поддержки</div>
+    </footer>
+  </div>
+
+  <script>
+    const carousel = document.getElementById('photoCarousel');
+    const images = carousel.querySelectorAll('img');
+    const dotsContainer = document.getElementById('carouselDots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+
+    // создаем точки под количество фоток
+    images.forEach((img, i) => {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showSlide(i);
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('span');
+
+    function showSlide(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      currentIndex = index;
+    }
+
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      let newIndex = currentIndex - 1;
+      if (newIndex < 0) newIndex = images.length - 1;
+      showSlide(newIndex);
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      let newIndex = (currentIndex + 1) % images.length;
+      showSlide(newIndex);
+    });
+
+    // сердечки по клику на фото
+    carousel.addEventListener('click', (e) => {
+      const rect = carousel.getBoundingClientRect();
+
+      const heart = document.createElement('span');
+      heart.classList.add('heart');
+      heart.textContent = '❤';
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      heart.style.left = x + 'px';
+      heart.style.top = y + 'px';
+
+      carousel.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
