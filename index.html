@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Кристина, с днем рождения!</title>
+  <title>Кристина, ты моя душа </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -14,15 +14,19 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ffb3c6 0%, #120018 55%, #050008 100%);
-      color: #fdfdfd;
+      background: radial-gradient(circle at top, #4b1b82 0%, #07000d 45%, #020008 100%);
+      color: #f7f0ff;
       min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
 
     .wrapper {
       max-width: 960px;
       margin: 0 auto;
-      padding: 24px 16px 48px;
+      padding: 24px 16px 56px;
+      position: relative;
+      z-index: 2;
     }
 
     header {
@@ -34,22 +38,27 @@
       font-size: 2.6rem;
       line-height: 1.2;
       margin-bottom: 8px;
+      color: #f7e4ff;
+      text-shadow: 0 0 16px rgba(194, 132, 255, 0.8);
     }
 
     header p {
       font-size: 1rem;
-      opacity: 0.85;
+      opacity: 0.9;
+      color: #d5c0ff;
     }
 
     /* Карусель */
     .carousel {
       position: relative;
       margin: 32px auto;
-      max-width: 420px;
-      border-radius: 24px;
+      max-width: 440px;
+      border-radius: 26px;
       overflow: hidden;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
       cursor: pointer;
+      border: 1px solid rgba(199, 145, 255, 0.4);
+      background: radial-gradient(circle at top, #3b145e 0%, #05000a 65%);
     }
 
     .carousel-inner {
@@ -73,13 +82,14 @@
       top: 50%;
       transform: translateY(-50%);
       border: none;
-      background: rgba(0, 0, 0, 0.45);
-      color: #fff;
-      padding: 8px 12px;
+      background: rgba(5, 0, 20, 0.75);
+      color: #e7d4ff;
+      padding: 8px 13px;
       border-radius: 999px;
       cursor: pointer;
       font-size: 0.9rem;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(194, 132, 255, 0.6);
     }
 
     .carousel-btn.left {
@@ -103,20 +113,22 @@
       height: 8px;
       border-radius: 50%;
       margin: 0 3px;
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(242, 222, 255, 0.35);
     }
 
     .carousel-dots span.active {
-      background: #ff7aa2;
+      background: #c785ff;
+      box-shadow: 0 0 10px rgba(199, 133, 255, 0.9);
     }
 
-    /* Сердечки */
+    /* Сердечки при клике по фото */
     .heart {
       position: absolute;
       font-size: 24px;
       pointer-events: none;
       animation: heart-float 1.2s ease-out forwards;
-      text-shadow: 0 0 8px rgba(255, 65, 130, 0.7);
+      text-shadow: 0 0 10px rgba(211, 153, 255, 0.9);
+      color: #d79eff;
     }
 
     @keyframes heart-float {
@@ -130,25 +142,83 @@
       }
     }
 
+    /* Фоновый дождь фиолетовых сердечек с краев страницы */
+    .bg-heart {
+      position: fixed;
+      font-size: 22px;
+      color: rgba(206, 147, 255, 0.35);
+      pointer-events: none;
+      z-index: 1;
+      filter: drop-shadow(0 0 12px rgba(186, 132, 255, 0.9));
+    }
+
+    .bg-heart.bottom {
+      animation: float-up 9s linear forwards;
+    }
+
+    .bg-heart.left {
+      animation: float-right 9s linear forwards;
+    }
+
+    .bg-heart.right {
+      animation: float-left 9s linear forwards;
+    }
+
+    @keyframes float-up {
+      0% {
+        transform: translateY(0) scale(0.7) rotate(0deg);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5) rotate(20deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes float-right {
+      0% {
+        transform: translateX(0) scale(0.7) rotate(-15deg);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateX(120vw) scale(1.6) rotate(10deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes float-left {
+      0% {
+        transform: translateX(0) scale(0.7) rotate(15deg);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateX(-120vw) scale(1.6) rotate(-10deg);
+        opacity: 0;
+      }
+    }
+
     section {
       margin: 32px 0;
       padding: 20px 18px;
       border-radius: 20px;
-      background: rgba(10, 0, 25, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(10px);
+      background: radial-gradient(circle at top left, rgba(95, 57, 143, 0.55), rgba(10, 2, 25, 0.95));
+      border: 1px solid rgba(210, 158, 255, 0.28);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
     }
 
     section h2 {
       font-size: 1.4rem;
       margin-bottom: 12px;
+      color: #f3dcff;
     }
 
     section p,
     section li {
       font-size: 0.98rem;
       line-height: 1.6;
-      opacity: 0.92;
+      opacity: 0.95;
+      color: #e7d7ff;
     }
 
     .poems p {
@@ -157,13 +227,15 @@
     }
 
     .wishes ul,
-    .thanks ul {
+    .thanks ul,
+    .facts ul {
       list-style: disc;
       padding-left: 18px;
     }
 
     .wishes li,
-    .thanks li {
+    .thanks li,
+    .facts li {
       margin-bottom: 6px;
     }
 
@@ -187,11 +259,13 @@
     .love-languages-list div {
       padding: 6px 8px;
       border-radius: 10px;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(25, 5, 55, 0.85);
+      border: 1px solid rgba(163, 115, 233, 0.28);
     }
 
     .love-languages-list span.lang {
       font-weight: 600;
+      color: #f6ddff;
     }
 
     footer {
@@ -204,11 +278,13 @@
     footer .phone {
       font-weight: 600;
       margin-bottom: 4px;
+      color: #f4ddff;
     }
 
     footer .hotline {
       font-size: 0.9rem;
-      opacity: 0.8;
+      opacity: 0.85;
+      color: #dec4ff;
     }
 
     @media (max-width: 600px) {
@@ -216,7 +292,7 @@
         font-size: 2.1rem;
       }
       .wrapper {
-        padding: 20px 12px 36px;
+        padding: 20px 12px 40px;
       }
       section {
         padding: 16px 14px;
@@ -228,21 +304,10 @@
   <div class="wrapper">
     <header>
       <h1>я тебя люблю, кристина! с днем рождения!</h1>
-      <p>все это место создано исключительно под тебя. заходить другим лицам запрещено.</p>
+      <p>бляяя ты ахуенная </p>
     </header>
 
-    <!-- Карусель с фото Кристины -->
-    <!-- просто положи в папку эти файлы с такими именами -->
-    <!-- 1: вы с шахматами -->
-    <!-- 2: офис с ковром -->
-    <!-- 3: кристина с котом -->
-    <!-- 4: джакузи-туса -->
-    <!-- 5: кристина на закате -->
-    <!-- 6: тусовка с пиццей -->
-    <!-- 7: кристина и собака в офисе -->
-    <!-- 8: команда с сертификатами -->
-    <!-- 9: парень в худи GRAFIKA -->
-    <!-- 10: свечи в пицце на др -->
+    <!-- Карусель с фото -->
     <div class="carousel" id="photoCarousel">
       <div class="carousel-inner">
         <img src="kristina-chess.jpg" alt="кристина играет в шахматы" class="active">
@@ -265,43 +330,70 @@
     <section class="poems" id="poems">
       <h2>стишки с днем рождения</h2>
       <p>
-ты смеешься - и воздух светлеет,
-ты молчишь - и становится тихо в голове.
-хочу, чтобы каждый твой год наглеет
-и забирает все лучшее себе.
-      </p>
+Поздравляю с днем рождения!
+Пожелаю в этот день
+Счастья женского, цветения,
+Ярких в жизни перемен,
+Вдохновения, поддержки,
+Комплиментов, красоты,
+Блеска глаз, добра, надежды,
+Чувств прекрасных, сил, мечты.
+Будет пусть в семье достаток,
+Пусть звенит в ней детский смех,
+Продвижение ждёт в работе
+И большой-большой успех!
+Уважения желаю,
+Огонька, в душе весны,
+Положительных эмоций,
+Всеобъемлющей любви!      </p>
       <p>
-пусть будет жизнь без лишней ерунды,
-чтоб планы сбывались быстрее, чем сторис,
-чтоб рядом всегда были те самые "мы",
-и чтобы ты никогда в себе не сомневалась.
-      </p>
-      <!-- можешь добавить свои стихи ниже -->
+Здоровья, успеха, улыбок, везения,
+Отличного только всегда настроения.
+Искать и найти, обрести и поверить.
+Стучаться — и пусть открываются двери.
+ 
+Хорошим словам и друзьям доверять,
+Проблем не бояться, тревоги не знать.
+И в твой день рождения пусть повторится
+Все лучшее то, что должно скоро сбыться.
     </section>
 
     <!-- Пожелания -->
     <section class="wishes" id="wishes">
       <h2>пожелания</h2>
       <ul>
-        <li>чтобы у тебя всегда были и ресурсы, и дерзость брать от жизни максимум.</li>
-        <li>чтобы то, что ты считаешь "слишком смелой мечтой", стало твоей рутиной.</li>
-        <li>чтобы вокруг тебя были люди, которые не тормозят, а разгоняют.</li>
-        <li>чтобы твоя нежность и твоя сила никогда не конфликтовали, а работали в паре.</li>
-        <li>чтобы ты чувствовала себя защищенной даже в те дни, когда мир тупит.</li>
+        <li>чтобы у тебя всегда было все, чтоб и сто друзей и сто рублей.</li>
+        <li>чтобы люди вокруг не тянули тебя вниз, а держались за тебя, пока ты растешь вверх.</li>
+        <li>чтобы у тебя был дом, в который хочется возвращаться, а не прятаться.</li>
+        <li>чтобы тело, голова и сердце были здоровыми и ясными.</li>
+        <li>чтобы ты никогда не сомневалась</li>
       </ul>
     </section>
 
-    <!-- Инструкция к применению Кристины -->
+    <!-- Инструкция -->
     <section class="manual" id="manual">
       <h2>инструкция к применению кристины</h2>
       <ul class="manual-steps">
-        <li><strong>не трогать усталость.</strong> если кристина замолчала - это не игнор, а режим перезагрузки. тут лучше чай, плед и обнимание.</li>
-        <li><strong>поддерживать амбиции.</strong> если кристина сказала "а давай попробуем", нормальный ответ не "это сложно", а "ок, как делим задачи".</li>
-        <li><strong>хвалить по делу.</strong> за результат, за смелость, за честность с собой. она это слышит и запоминает.</li>
-        <li><strong>не обесценивать.</strong> ни чувства, ни мысли, ни идеи. даже если звучит как "я все брошу и уеду", сначала слушаем, потом паникуем.</li>
-        <li><strong>прижимать к себе.</strong> обнимать по собственной инициативе, а не только "когда попросили". телу тоже нужна уверенность, что ее любят.</li>
-        <li><strong>к критике подходить аккуратно.</strong> формат "давай подумаем, как сделать удобнее" вместо "ты опять".</li>
-        <li><strong>режим "бережно".</strong> включать в дни, когда она выглядит сильной, но в глазах чуть грустно. как раз тогда поддержка нужна сильнее всего.</li>
+        <li><strong>не мешать сиять.</strong> если кристина загорается идеей, лучше поднести дров, а не воду.</li>
+        <li><strong>уважать ее "я устала".</strong> усталость не отменяет силу, но говорит "дай мне паузу". паузу лучше сделать.</li>
+        <li><strong>говорить прямо, но мягко.</strong> она ценит честность, но не обязана выдерживать грубость.</li>
+        <li><strong>замечать успехи.</strong> и маленькие шаги, которые ведут к мечте.</li>
+        <li><strong>обнимать чаще.</strong> телу нужна опора не меньше, чем голове.</li>
+        <li><strong>когда кристина молчит - не додумывать за нее.</strong> проще спросить "что тебе сейчас нужно?".</li>
+        <li><strong>принимать ее серьезность и выкидоны одновременно.</strong> или иди нахуй сразу.</li>
+      </ul>
+    </section>
+
+    <!-- Факты о Кристине -->
+    <section class="facts" id="facts">
+      <h2>факты о кристине</h2>
+      <ul>
+        <li>умеет быть и злой как мразота, и самым мягким человеком в комнате, иногда в один и тот же час.</li>
+        <li>собирает вокруг себя людей, которые потом сами начинают сиять сильнее, чем когда пришли.</li>
+        <li>если кристина смеется - значит, место безопасное. где ей не ок, там она просто уходит.</li>
+        <li>любой пиздец типа меня рядом с ней со временем превращается в систему и  понятные шаги.</li>
+        <li>высокая чувствительность плюс мозг-аналитик - сочетание, которое делает ее и тонкой, и разрывной.</li>
+        <li>умеет радоваться простым штукам: животным, людям, теплу, смешным мелочам. и это не "мелочи", а суперсила.</li>
       </ul>
     </section>
 
@@ -309,19 +401,19 @@
     <section class="thanks" id="thanks">
       <h2>благодарности</h2>
       <ul>
-        <li>за то, как ты умеешь оставаться собой при любом раскладе.</li>
-        <li>за то, что рядом с тобой хочется быть честнее, взрослее и добрее.</li>
-        <li>за твой юмор, который спасает ситуации, которые вообще не обязан спасать.</li>
-        <li>за твой мозг, который замечает детали, которые другие даже не видят.</li>
-        <li>за то, что ты не сдаешься там, где большинство уже машет рукой.</li>
-        <li>за всю заботу, которую ты раздаешь людям и даже не считаешь это чем-то особенным.</li>
+        <li>за то, что ты делаешь мир рядом с собой теплее.</li>
+        <li>за то, что ты не бросаешь людей даже тогда, когда тебе самой тяжело.</li>
+        <li>за твое чувство юмора, которое делает легче даже кога хочется повеситься.</li>
+        <li>за твою честность, иногда неудобную, но всегда настоящую.</li>
+        <li>за то, что ты веришь в людей чуть больше, чем они верят в себя.</li>
+        <li>за все моменты, когда ты выбирала жить, пробовать, расти, а не закрываться.</li>
       </ul>
     </section>
 
     <!-- "Я тебя люблю" на 50 языках -->
     <section class="love-languages" id="love-languages">
       <h2>я тебя люблю на 50 языках</h2>
-      <p>если вдруг твой мозг скажет, что тебя мало любят - можешь открыть этот блок и просто спорить с ним на 50 языках.</p>
+      <p>и помни.</p>
 
       <div class="love-languages-list">
         <div><span class="lang">Русский</span>: Я тебя люблю</div>
@@ -392,7 +484,7 @@
 
     let currentIndex = 0;
 
-    // создаем точки под количество фоток
+    // точки под слайды
     images.forEach((img, i) => {
       const dot = document.createElement('span');
       if (i === 0) dot.classList.add('active');
@@ -428,7 +520,7 @@
       showSlide(newIndex);
     });
 
-    // сердечки по клику на фото
+    // сердечки по клику на карусель
     carousel.addEventListener('click', (e) => {
       const rect = carousel.getBoundingClientRect();
 
@@ -448,6 +540,37 @@
         heart.remove();
       }, 1200);
     });
+
+    // фиолетовые сердечки с краев страницы
+    function spawnBgHeart() {
+      const heart = document.createElement('span');
+      heart.classList.add('bg-heart');
+      heart.textContent = '❤';
+
+      const side = Math.floor(Math.random() * 3); // 0 - низ, 1 - лево, 2 - право
+
+      if (side === 0) {
+        heart.classList.add('bottom');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.bottom = '-20px';
+      } else if (side === 1) {
+        heart.classList.add('left');
+        heart.style.left = '-20px';
+        heart.style.top = Math.random() * 100 + 'vh';
+      } else {
+        heart.classList.add('right');
+        heart.style.right = '-20px';
+        heart.style.top = Math.random() * 100 + 'vh';
+      }
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 9000);
+    }
+
+    setInterval(spawnBgHeart, 1200);
   </script>
 </body>
 </html>
